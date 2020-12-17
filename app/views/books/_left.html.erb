@@ -1,0 +1,19 @@
+<!--ユーザ情報-->
+<h2>User info</h2>
+<%= attachment_image_tag user, :profile_image, :fill,70,70, fallback: "no_image.jpg"%>
+<p>name<%= user.name %></p>
+<p>introduction<%= user.introduction %></p>
+<% if user.id == current_user.id %>
+  <%= link_to "ユーザ情報編集",edit_user_path(user.id) %>
+<% end %>
+
+<!--新規投稿-->
+<h2>New Book</h2>
+<%= form_with model:book, local:true do |f| %>
+  <p>Title</p>
+    <%= f.text_field :title %>
+  <p>Opinion</p>
+    <%= f.text_area :body %>
+    <%= f.submit "Create Book" %>
+<% end %>
+

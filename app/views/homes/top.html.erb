@@ -1,0 +1,13 @@
+<h1>welcome to Bookers !!</h1>
+<p>
+  InBookers,<br>
+  you can share and exchange your opinions , inpressions , and emotions<br>
+  about various books!
+</p>
+<% if user_signed_in? %>
+  <%= link_to "Log in", users_path %>
+  <%= link_to "sign up", users_path %>
+<% else %>
+  <%= link_to "Log in", new_user_session_path %>
+  <%= link_to "sign up", new_user_registration_path %>
+<% end %>

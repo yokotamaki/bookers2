@@ -1,0 +1,15 @@
+<%= render 'books/left', user: @user, book: @book %>
+
+<h1>Editing Book</h1>
+<%= form_with model:@book, local:true do |f| %>
+  <p>Title</p>
+    <%= f.text_field :title %>
+  <p>Opinion</p>
+    <%= f.text_area :body %>
+    <%= f.submit "Update Book" %>
+<% end %>
+
+<%= link_to "show", book_path(@book.id) %>
+<p>|</p>
+<%= link_to "Back", books_path %>
+
