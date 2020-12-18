@@ -1,4 +1,12 @@
 <h2>Sign up</h2>
+<!--バリデーション-->
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>errors
+  <% @user.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
 
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>

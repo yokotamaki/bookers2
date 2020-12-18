@@ -1,3 +1,12 @@
+
+<!--バリデーション-->
+<% if book.errors.any? %>
+  <%= book.errors.count %>error
+  <% book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
 <!--ユーザ情報-->
 <h2>User info</h2>
 <%= attachment_image_tag user, :profile_image, :fill,70,70, fallback: "no_image.jpg"%>
