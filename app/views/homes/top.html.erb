@@ -1,13 +1,17 @@
-<h1>welcome to Bookers !!</h1>
-<p>
-  InBookers,<br>
-  you can share and exchange your opinions , inpressions , and emotions<br>
-  about various books!
-</p>
-<% if user_signed_in? %>
-  <%= link_to "Log in", users_path %>
-  <%= link_to "sign up", users_path %>
-<% else %>
-  <%= link_to "Log in", new_user_session_path %>
-  <%= link_to "sign up", new_user_registration_path %>
-<% end %>
+<div class="wrapper">
+  <div class="top-wrapper">
+    <h1>welcome to Bookers !!</h1>
+    <p class="top-text">
+      In<i class="fas fa-book"></i>Bookers,<br>
+      you can share and exchange your opinions , inpressions , and emotions<br>
+      about various books!
+    </p>
+    <% if user_signed_in? %>
+      <%= link_to "Log in", users_path, class:"btn btn-info btn-block top-btn" %>
+      <%= link_to "sign up", users_path, class:"btn btn-success btn-block top-btn" %>
+    <% else %>
+      <%= link_to "Log in", new_user_session_path, class:"btn btn-info top-btn" %>
+      <%= link_to "sign up", new_user_registration_path, class:"btn btn-success top-btn" %>
+    <% end %>
+  </div>
+</div>

@@ -26,18 +26,13 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id]) #本の編集画面に情報を表示させるため
-    #@user = @book.user
   end
 
   def update
     @book = Book.find(params[:id]) #バリデーションの検証をするのに情報を渡すため＠マークつける
     if @book.update(book_params)
-      redirect_to book_path(book.id), notice: "You have updated book successfully."
+      redirect_to book_path(@book.id), notice: "You have updated book successfully."
     else
-      #@book = Book.all
-      #@book = Book.find(params[:id])
-      #@user = @book.user
-      #@book = Book.new
       render :edit
     end
   end

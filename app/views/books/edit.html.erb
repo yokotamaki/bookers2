@@ -1,3 +1,4 @@
+<h1 class="edit-header">Editing Book</h1>
 
 <!--バリデーション-->
 <% if @book.errors.any? %>
@@ -7,16 +8,16 @@
   <% end %>
 <% end %>
 
-<h1>Editing Book</h1>
-<%= form_with model:@book, local:true do |f| %>
+<!--本の投稿編集画面-->
+<%= form_with model:@book, local:true, class:"form" do |f| %>
   <p>Title</p>
-    <%= f.text_field :title %>
+  <%= f.text_field :title, class:"form-text" %>
   <p>Opinion</p>
-    <%= f.text_area :body %>
-    <%= f.submit "Update Book" %>
+  <%= f.text_area :body, class:"form-text" %>
+  <%= f.submit "Update Book", class:"btn btn-success" %>
 <% end %>
-
-<%= link_to "show", book_path(@book.id) %>
-<p>|</p>
-<%= link_to "Back", books_path %>
-
+<div class="btn-wrapper">
+  <%= link_to "show", book_path(@book.id), class:"inline-block" %>
+  <p class="inline-block">|</p>
+  <%= link_to "Back", books_path, class:"inline-block" %>
+</div>

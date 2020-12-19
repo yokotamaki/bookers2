@@ -16,3 +16,77 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+
+/*サクセスメッセージ*/
+.msg {
+ color: green;
+ padding: 0 30px 30px;
+}
+
+/*ログイン・新規登録*/
+.login {
+ padding-left: 50px;
+}
+.signup {
+ padding-left: 50px;
+}
+
+/*トップページ*/
+.wrapper {
+ width: 100%;
+}
+.top-wrapper {
+ width: 550px;
+ margin: 0 auto;
+}
+.top-text {
+  line-height: 2;
+}
+.top-btn {
+ width: 400px;
+ margin: 10px auto 0;
+}
+
+/*ユーザ情報*/
+.user-info {
+ margin-bottom: 50px;
+}
+.user-image {
+ margin-top: 20px;
+ margin-bottom: 20px;
+}
+.user-custom{
+ width: 100%;
+}
+
+/*新規投稿画面*/
+.new-form-text {
+ width: 100%;
+}
+.new-btn {
+ display: block;
+}
+
+/*編集画面*/
+.edit-header {
+ width: 500px;
+ padding-bottom: 20px;
+ margin:0 auto;
+}
+.form {
+ width:500px;
+ margin: 0 auto;
+}
+.form-text {
+ width: 90%;
+ padding: 10px;
+ margin: 20px 0;
+}
+.btn-wrapper {
+ width: 500px;
+ margin: 10px auto 10px;
+}
+.inline-block {
+ display: inline-block;
+}
+

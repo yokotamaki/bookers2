@@ -1,4 +1,4 @@
-<h2>User info</h2>
+<h2 class="edit-header">User info</h2>
 
 <!--バリデーション-->
 <% if @user.errors.any? %>
@@ -8,12 +8,12 @@
   <% end %>
 <% end %>
 
-<%= form_with model:@user, local:true do |f| %>
+<%= form_with model:@user, local:true, class:"form" do |f| %>
   <p>Name</p>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class:"form-text"  %>
   <p>Image</p>
     <%= f.attachment_field :profile_image %>
   <p>Introduction</p>
-    <%= f.text_area :introduction %>
-    <%= f.submit "Update User" %>
+    <%= f.text_area :introduction, class:"form-text"  %>
+    <%= f.submit "Update User", class:"btn btn-secondary" %>
 <% end %>
