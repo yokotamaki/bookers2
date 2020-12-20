@@ -23,6 +23,18 @@
  padding: 0 30px 30px;
 }
 
+/*エラーメッセージ新規登録・新規投稿*/
+.new-error-msg {
+ color: red;
+}
+
+/*エラーメッセージ編集*/
+.edit-error-msg {
+ color: red;
+ width: 500px;
+ margin: 0 auto;
+}
+
 /*ログイン・新規登録*/
 .login {
  padding-left: 50px;

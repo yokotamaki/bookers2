@@ -1,12 +1,14 @@
 <h2 class="edit-header">User info</h2>
 
 <!--バリデーション-->
-<% if @user.errors.any? %>
-  <%= @user.errors.count %>errors
-  <% @user.errors.full_messages.each do |message| %>
-    <%= message %>
+<div class="edit-error-msg">
+  <% if @user.errors.any? %>
+    <%= @user.errors.count %>errors
+    <% @user.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 <%= form_with model:@user, local:true, class:"form" do |f| %>
   <p>Name</p>

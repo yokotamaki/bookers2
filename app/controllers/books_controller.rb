@@ -19,13 +19,16 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
-    @book2 = Book.new
+    @book = Book.find(params[:id]) #本の名前タイトルなど引っ張ってくるため
+    @book2 = Book.new #新規投稿画面に何も表示させなくするため（部分テンプレート）
     @user = @book.user
   end
 
   def edit
     @book = Book.find(params[:id]) #本の編集画面に情報を表示させるため
+    if @book.user.id != current_user.id
+      redirect_to books_path
+    end
   end
 
   def update

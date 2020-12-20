@@ -2,6 +2,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user.id != current_user.id
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
@@ -14,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.all #一覧を表示するためall
     @book = Book.new #部分テンプレートに伴い追加
     @user = current_user #部分テンプレートに伴い追加
   end
