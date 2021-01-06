@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id]) #本の名前タイトルなど引っ張ってくるため
     @book_new = Book.new #新規投稿画面に何も表示させなくするため（部分テンプレート）
-    @user = @book.user#showから部分テンプレート（info）を呼び出すときに使う
+    @user = @book.user #showから部分テンプレート（info）を呼び出すときに使う
   end
 
   def create
@@ -31,7 +31,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:id]) #バリデーションの検証をするのに情報を渡すため＠マークつける
+    @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to book_path(@book.id), notice: "You have updated book successfully."
     else
