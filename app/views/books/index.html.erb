@@ -37,6 +37,9 @@
               <td id="favorite-btn_<%= book.id %>" >
                 <%= render 'favorites/favorite', book: book %>
               </td>
+              <td>
+                <%= render 'book_comments/count', book: book %>
+              </td>
             </tr>
           <% end %>
         </table>

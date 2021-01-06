@@ -9,6 +9,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id]) #本の名前タイトルなど引っ張ってくるため
     @book_new = Book.new #新規投稿画面に何も表示させなくするため（部分テンプレート）
     @user = @book.user #showから部分テンプレート（info）を呼び出すときに使う
+    @book_comment = BookComment.new
   end
 
   def create
