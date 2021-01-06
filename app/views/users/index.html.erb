@@ -3,7 +3,8 @@
 
     <!--左側（部分テンプレート）-->
     <div class="col-md-3">
-      <%= render 'books/left', user: @user, book: @book %>
+      <%= render 'users/info', user: current_user %>
+      <%= render 'books/form', book: @book %>
     </div>
 
     <!--右側-->

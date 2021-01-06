@@ -3,7 +3,12 @@ class BooksController < ApplicationController
   def index
     @books = Book.all #投稿情報を全て取得
     @book = Book.new #新規投稿を保存する #バリデーション@bookの部分？
-    @user = current_user #user info表示のため　ログインしているユーザ情報取得
+  end
+
+  def show
+    @book = Book.find(params[:id]) #本の名前タイトルなど引っ張ってくるため
+    @book_new = Book.new #新規投稿画面に何も表示させなくするため（部分テンプレート）
+    @user = @book.user#showから部分テンプレート（info）を呼び出すときに使う
   end
 
   def create
@@ -16,12 +21,6 @@ class BooksController < ApplicationController
       @user = current_user #user info表示のため　部分テンプレートで使用しているため
       render :index
     end
-  end
-
-  def show
-    @book = Book.find(params[:id]) #本の名前タイトルなど引っ張ってくるため
-    @book2 = Book.new #新規投稿画面に何も表示させなくするため（部分テンプレート）
-    @user = @book.user
   end
 
   def edit
