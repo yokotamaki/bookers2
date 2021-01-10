@@ -3,26 +3,14 @@
 
     <!--左側（部分テンプレート）-->
     <div class="col-md-3">
-      <%= render 'books/left', user: @user, book: @book %>
+      <%= render 'users/info', user: current_user %>
+      <%= render 'books/form', book: @book %>
     </div>
 
     <!--右側-->
     <div class="col-md-8 offset-md-1">
       <h2>Users</h2>
-      <table class="table">
-        <tr>
-          <th>image</th>
-          <th>name</th>
-          <th></th>
-        </tr>
-        <% @users.each do |user| %>
-          <tr>
-            <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %></td>
-            <td><%= user.name %></td>
-            <td><%= link_to "Show", user_path(user.id) %></td>
-          </tr>
-        <% end %>
-      </table>
+      <%= render 'users/index', users: @users %>
     </div>
 
   </div>

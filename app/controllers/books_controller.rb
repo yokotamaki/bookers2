@@ -3,7 +3,13 @@ class BooksController < ApplicationController
   def index
     @books = Book.all #投稿情報を全て取得
     @book = Book.new #新規投稿を保存する #バリデーション@bookの部分？
-    @user = current_user #user info表示のため　ログインしているユーザ情報取得
+  end
+
+  def show
+    @book = Book.find(params[:id]) #本の名前タイトルなど引っ張ってくるため
+    @book_new = Book.new #新規投稿画面に何も表示させなくするため（部分テンプレート）
+    @user = @book.user #showから部分テンプレート（info）を呼び出すときに使う
+    @book_comment = BookComment.new
   end
 
   def create
@@ -18,12 +24,6 @@ class BooksController < ApplicationController
     end
   end
 
-  def show
-    @book = Book.find(params[:id]) #本の名前タイトルなど引っ張ってくるため
-    @book2 = Book.new #新規投稿画面に何も表示させなくするため（部分テンプレート）
-    @user = @book.user
-  end
-
   def edit
     @book = Book.find(params[:id]) #本の編集画面に情報を表示させるため
     if @book.user.id != current_user.id
@@ -32,7 +32,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:id]) #バリデーションの検証をするのに情報を渡すため＠マークつける
+    @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to book_path(@book.id), notice: "You have updated book successfully."
     else

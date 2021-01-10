@@ -1,0 +1,9 @@
+<% if @model == 'user' %>
+  <h3>Users Search for "<%= @keyword %>"</h3>
+  <%= render 'users/index', users: @user %>
+<% elsif @model == 'book' %>
+  <h3>Books Search for "<%= @keyword %>"</h3>
+  <%= render 'books/index', books: @book %>
+<% end %>
+
+

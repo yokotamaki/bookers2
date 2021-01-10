@@ -11,68 +11,11 @@
   </head>
 
   <body>
-    <header class="d-block p-2 bg-dark text-white mb-3">
-
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <!--ヘッダー左側-->
-          <span class="navbar-brand mr-auto"><%= link_to "Bookers", root_path, class:'nav-link text-light' %></span>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></i></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
-          <!--ヘッダー右側-->
-          <ul class="navbar-nav ml-auto">
-          <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to user_path(current_user), class: 'nav-link text-light' do  %>
-                <span><i class="fas fa-home"></i>Home</span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to users_path, class: 'nav-link text-light' do %>
-                <span><i class="fas fa-users">Users</i></span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to books_path, class: 'nav-link text-light' do %>
-                <span><i class="fas fa-book-open">Books</i></span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
-                <span><i class="fas fa-sign-out-alt">logout</i></span>
-              <% end %>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to root_path, class: 'nav-link text-light' do %>
-                <span><i class="fas fa-home"></i>Home</span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to about_path, class: 'nav-link text-light' do %>
-                <span><i class="fas fa-link"></i>About</span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
-                <span><i class="fas fa-user-plus"></i>Sign up</span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
-                <span><i class="fas fa-sign-in-alt"></i>Login</span>
-              <% end %>
-            </li>
-          <% end %>
-          </ul>
-          </div>
-        </nav>
-      </div>
+    <header>
+      <%= render 'layouts/header' %>
     </header>
 
+    <%= render 'searchs/form' %>
     <!--サクセスメッセージ-->
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key} msg") %>
@@ -82,7 +25,7 @@
     <%= yield %>
 
     <footer class="text-center mt-5">
-      <p>CopyRight Infratop.inc</p>
+      <%= render 'layouts/footer' %>
     </footer>
 
   </body>
