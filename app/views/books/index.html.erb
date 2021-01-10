@@ -8,8 +8,8 @@
       <% end %>
     <% end %>
   </div>
-  <div class="row">
 
+  <div class="row">
     <!--左側（部分テンプレート）-->
     <div class="col-md-3">
       <%= render 'users/info', user: current_user %>
@@ -19,33 +19,8 @@
     <!--右側-->
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
-        <table class="table table-hover">
-          <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Opinion</th>
-            <th></th>
-            <th></th>
-          </tr>
-          <% @books.each do |book| %>
-            <tr>
-              <td>
-                <%= link_to user_path(book.user.id) do %>
-                  <%= attachment_image_tag book.user, :profile_image, :fill,50,50, fallback: "no_image.jpg", size: "50x50" %>
-                <% end %>
-              </td>
-              <td><%= link_to book.title, book_path(book.id) %></td>
-              <td><%= book.body %></td>
-              <td id="favorite-btn_<%= book.id %>" >
-                <%= render 'favorites/favorite', book: book %>
-              </td>
-              <td>
-                <%= render 'book_comments/count', book: book %>
-              </td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-
+      <%= render 'books/index', books: @books %>
     </div>
+
+  </div>
 </div>
