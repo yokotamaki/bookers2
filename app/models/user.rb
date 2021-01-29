@@ -13,6 +13,9 @@ class User < ApplicationRecord
   has_many :following_user, through: :follower, source: :followed#自分がフォローしている人
   has_many :follower_user, through: :followed, source: :follower#自分がフォローされている人
 
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
+
   def follow(user_id)#フォローする
     follower.create(followed_id: user_id)
   end
