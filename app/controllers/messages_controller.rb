@@ -18,9 +18,8 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @messages = current_user.messages.new(message_params)
-    @messages.save
-    redirect_to request.referer
+    @message = current_user.messages.new(message_params)
+    @message.save
   end
 
   private
